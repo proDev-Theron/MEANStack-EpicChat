@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "alias ng='/home/ec2-user/environment/node_modules/@angular/cli/bin/ng' && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
