@@ -1,6 +1,12 @@
 {
+    "build": {
+        "@saveall": true
+    },
     "extensions": {
         "@git.ignoreLimitWarning": true
+    },
+    "instance": {
+        "@automaticShutdown": "30"
     },
     "language": {
         "tern_defs": {

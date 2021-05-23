@@ -1,3 +1,6 @@
+//for Cloud9
+let port = process.env.PORT;
+let ip = process.env.IP;
 //main backend file
 //required dependencies
 const express = require('express')
@@ -5,12 +8,11 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const app = express() //instance of express app
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/epicchat', {useNewUrlParser: true})
+mongoose.connect(`mongodb://${ip}:27017/epicchat`, {useNewUrlParser: true})
 const server = require('http').Server(app) //websocket has http server dependency
 const io = require('socket.io')(server)
 
-//for Cloud9
-let port = process.env.PORT;
+
 
 mongoose.Promise = global.Promise
 app.use(bodyParser.json())
