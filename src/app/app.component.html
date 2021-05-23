@@ -1,0 +1,31 @@
+<div class="container">
+  <!-- 1st component Get username-->
+  <div class="topbar">{{title}}</div>
+  <div *ngIf="!username" class="usernamebox">
+    <div class="user">
+        <p style="padding-bottom: 10px; font-weight: bold;">Who are you?</p>
+        <form (submit)="addUser(user)">
+            <input type="text" name="user" [(ngModel)]="user">
+            <button type="submit">Join Chat</button>
+        </form>
+    </div>
+  </div>
+
+  <!--2nd component Chat Area -->
+  <div *ngIf="username" class="chatarea"> <!--ng directive that creates an array of chats-->
+    <div style="min-height: 0; overflow: scroll" id="scrolldiv">
+      <!--creates a new div for every chat-->
+    <div *ngFor="let chat of chats; let i = index" class="chat" [class.notify]="chat.type == 'notify'" [class.me]="chat.user == username">
+      <p><span class="username">{{chat.user}}</span>{{chat.message}}</p>
+    </div>
+    </div>
+  </div>
+
+  <!--3rd component-->
+  <div  *ngIf="username" class="inputarea">
+    <form (submit)="addChat()">
+        <input class="textbox" name="message" [(ngModel)]="message" type="text" autofocus autocomplete="off">
+        <button type="submit" class="sendbutton">Send</button>
+    </form>
+  </div>
+</div> 
