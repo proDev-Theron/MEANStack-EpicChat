@@ -85,4 +85,4 @@ app.get('*', (req, res) => {
 })
 
 
-server.listen(port, () => console.log(`Listening on port ${port}`))
+server.listen(port, () => console.log(`Listening on ${ip}:${port}`))
